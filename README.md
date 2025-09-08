@@ -32,7 +32,7 @@ It prompts for messages at the terminal, encrypts them, then decrypts to verify 
 
 Place the three key files in the same directory as the script, then:
 
-python basic\_crypto\_demo\_files.py
+python encryptionDecryption.py
 
 Follow the prompts to enter a symmetric message and an asymmetric message.
 
