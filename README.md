@@ -12,7 +12,7 @@ It prompts for messages at the terminal, encrypts them, then decrypts to verify 
 
 ## **Files**
 
-* `basic_crypto_demo_files.py` — main script (loads keys from files, prints PEMs).
+* `encryptionDecryption.py` — main script (loads keys from files, prints PEMs).
 
 * `symmetric.key` — Base64 Fernet key (44 chars).
 
