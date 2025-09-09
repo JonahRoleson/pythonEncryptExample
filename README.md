@@ -30,7 +30,7 @@ It prompts for messages at the terminal, encrypts them, then decrypts to verify 
 
 ## **How to Run**
 
-Place the three key files in the same directory as the script, then:
+Clone this repository, then:
 
 python encryptionDecryption.py
 
@@ -69,34 +69,14 @@ Follow the prompts to enter a symmetric message and an asymmetric message.
   * Simplicity: single call to encrypt/decrypt — ideal for a clear, short demo.
 
   * **Authenticated encryption:** ensures both confidentiality **and** integrity out of the box.
-
-  * Well-vetted recipe built on AES \+ HMAC with standardized token format.
-
+    
 * **RSA-OAEP**
 
-  * Modern, secure padding for RSA (as opposed to legacy PKCS\#1 v1.5).
+  * Modern, secure padding for RSA.
 
   * Incorporates randomness to prevent pattern leakage and chosen-plaintext attacks.
-
-  * Standard choice for encrypting small messages or **wrapping** symmetric keys in hybrid designs.
 
 ## **Expected Behavior: “Why does ciphertext change?”**
 
 Both Fernet and RSA-OAEP include **randomness** (IVs / nonces / random padding).  
  **Same key \+ same message** → **different ciphertexts** each run, but **always decrypts** to the original plaintext. This is by design for security.
-
-## **Security Notes (Brief)**
-
-* Demo keys are for learning only; never reuse in real systems.
-
-* Keep `rsa_private.pem` secret; distribute only the public key.
-
-* For large data, use **hybrid encryption**: generate a random symmetric key for the data, then encrypt that key with RSA-OAEP.
-
-## **Troubleshooting**
-
-* **“InvalidToken” (Fernet):** Key mismatch or corrupted token.
-
-* **PEM load errors:** Ensure files contain full headers/footers (`-----BEGIN ...-----`) and Unix newlines.
-
-* **Base64 key format:** Fernet keys are 44-character URL-safe Base64 strings ending with `=`.
